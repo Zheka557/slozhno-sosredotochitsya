@@ -4,16 +4,16 @@
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   margin-inline-start: 20px;
   margin-inline-end: 20px;
-  background-image: url(../images/cover-image-dark.png);
+  background-image: var(--bg-image);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 .link {
-  text-shadow: 2px 2px 0px #FF0070;
-  color: #F1B2CE;
-  font-family: "IBM Plex Mono", serif;
+  text-shadow: 2px 2px 0px var(--accent-color, #FF0070);
+  color: var(--main-font-color);
+  font-family: "IBM Plex Mono", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -22,12 +22,6 @@
 }
 
 .link:hover {
-  color: #F1B2CE;
-  font-family: "IBM Plex Mono", serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 23.4px; /* 130% */
   text-decoration: underline;
 }
 
@@ -36,7 +30,7 @@
 }
 
 .link:has(:focus-visible) {
-  outline: 1px solid #F1B2CE;
+  outline: 1px solid var(--main-font-color, #F1B2CE);
   outline-offset: 1px;
 }
 
@@ -46,6 +40,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   height: 100vh;
+  min-height: 668px;
 }
 
 .header__theme-menu {
@@ -60,16 +55,18 @@
 }
 
  .rec {
+  display: block;
   content: "";
-  color: #FF0070;
+  color: var(--accent-color, #FF0070);
   text-align: center;
-  font-family: "IBM Plex Mono", serif;
+  font-family: "IBM Plex Mono", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
+  text-transform: uppercase;
   line-height: 25px; 
   position: absolute;
-  margin-inline-start: 89.5vw;
+  margin-inline-start: 89.7vw;
 }
 
 .rec::after {
@@ -78,26 +75,27 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: #FF0070;
-  fill: #FF0070;
-  filter: drop-shadow(0px 0px 4px #FF0070);
+  background: var(--accent-color);
+  fill: var(--accent-color);
+  filter: drop-shadow(0px 0px 4px var(--accent-color, #FF0070));
   margin-inline-start: 10px;
 }
 
-.header-border-bottom {
+.decoration-border-top {
   width: 25px;
   height: 25px;
-  border-top: 1px solid #FF0070;
-  border-right: 1px solid #FF0070;
+  border-top: 1px solid var(--accent-color, #FF0070);
+  border-right: 1px solid var(--accent-color, #FF0070);
   display: grid;
   justify-self: end;
+  grid-column-start: 4;
 }
 
-.header-border-top {
+.decoration-border-bottom {
   width: 25px;
   height: 25px;
-  border-bottom: 1px solid #FF0070;
-  border-left: 1px solid #FF0070;
+  border-bottom: 1px solid var(--accent-color, #FF0070);
+  border-left: 1px solid var(--accent-color, #FF0070);
   display: grid;
   align-self: end;
   grid-column-start: 1;
@@ -116,9 +114,9 @@
 .header__theme-menu-button {
   width: 70px;
   height: 26px;
-  color: #FF0070;
+  color: var(--accent-color, #FF0070);
   text-align: center;
-  font-family: "IBM Plex Mono", serif;
+  font-family: "IBM Plex Mono", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -130,10 +128,10 @@
 .header__theme-menu-button:hover {
   width: 70px;
   height: 26px;
-  border: 1px solid rgba(255, 0, 112, 0.40);
-  color: #FF0070;
+  border: 1px solid var(--border-button-hover);
+  color: var(--accent-color, #FF0070);
   text-align: center;
-  font-family: "IBM Plex Mono", serif;
+  font-family: "IBM Plex Mono", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -147,19 +145,19 @@
 }
 
 .header__theme-menu-button:has(:focus-visible) {
-  border-bottom: #FF0070;
+  border-bottom: var(--accent-color, #FF0070);
   padding-bottom: 1px;
 }
 
 .header__theme-menu-button_active {
   pointer-events: none;
-  border: 1px solid #FF0070;
+  border: 1px solid var(--accent-color, #FF0070);
 }
 
 .title {
-  color: #DB00FF;
-  text-shadow: 4px 4px 0px #FF0070;
-  font-family: "IBM Plex Mono", serif;
+  color: var(--main-text-color, #DB00FF);
+  text-shadow: 4px 4px 0px var(--title-shadow, #FF0070);
+  font-family: "IBM Plex Mono", sans-serif;
   font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem) ;
   font-style: normal;
   font-weight: 700;
@@ -168,12 +166,13 @@
   grid-column-start: 1;
   grid-column-end: 5;
   margin-block-start: 300px;
+  margin-inline-start: -20px;
 }
 
 .page__description {
-  background-color: #FF0070;
-  color: #000028;
-  font-family: "IBM Plex Mono", serif;
+  background-color: var(--bg-for-text, #FF0070);
+  color: var(--bg-text-color, #000028);
+  font-family: "IBM Plex Mono", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -213,6 +212,7 @@
   grid-column-start: 1;
   grid-column-end: 4;
   margin-block-end: 20px;
+  max-width: 300px;
 }
 
 .focus__advises {
@@ -227,8 +227,8 @@
 }
 
 .section-title {
-  color: #FF0070;
-  font-family: "IBM Plex Mono", serif;
+  color: var(--accent-color, #FF0070);
+  font-family: "IBM Plex Mono", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -236,13 +236,13 @@
 }
 
 .subtitle {
-  color: #000028;
-  font-family: "IBM Plex Mono", serif;
+  color: var(--bg-text-color, #000028);
+  font-family: "IBM Plex Mono", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 23.4px; /* 130% */
-  background-color: #FF0070;
+  background-color: var(--bg-for-text, #FF0070);
 }
 
 .subtitle-advise {
@@ -250,13 +250,13 @@
 }
 
 .subtitle-advises {
-  color: #000028;
-  font-family: "IBM Plex Mono", serif;
+  color: var(--bg-text-color, #000028);
+  font-family: "IBM Plex Mono", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 23.4px; /* 130% */
-  background-color: #FF0070;
+  background-color: var(--bg-for-text,#FF0070);
 }
 
 .section-description {
@@ -266,8 +266,8 @@
 }
 
 .description-text {
-  color: #F1B2CE;
-  font-family: "IBM Plex Mono", serif;
+  color: var(--main-font-color, #F1B2CE);
+  font-family: "IBM Plex Mono", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -282,7 +282,7 @@
 }
 
 .images-title {
-  background-color: #FF0070;
+  background-color: var(--bg-for-text, #FF0070);
   color: #000028;
   display: grid;
   grid-column-start: 1;
@@ -352,16 +352,16 @@
 .footer {
   margin-block-start: 80px;
   margin-block-end: 20px;
-  width: 100%;
-  min-height: 667px;
+  height: 100vh;
+  min-height: 668px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
 .footer-text {
-  color: #DB00FF;
+  color: var(--main-text-color, #DB00FF);
   text-shadow: 4px 4px 0px #FF0070;
-  font-family: "IBM Plex Mono", serif;
+  font-family: "IBM Plex Mono", sans-serif;
   font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem) ;
   font-style: normal;
   font-weight: 700;
@@ -369,30 +369,19 @@
   display: grid;
   align-self: center;
   justify-self: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
 }
 
-.footer-border-bottom {
-  width: 25px;
-  height: 25px;
-  border-top: 1px solid #FF0070;
-  border-right: 1px solid #FF0070;
-  display: grid;
-  align-self: top;
-  justify-self: end;
-}
-
-.footer-border-top {
-  width: 25px;
-  height: 25px;
-  border-bottom: 1px solid #FF0070;
-  border-left: 1px solid #FF0070;
-  display: grid;
-  align-self: end;
+@media (max-width: 1024px) {
+  .rec {
+    margin-inline-start: 90vw;
+  }
 }
 
 @media (max-width: 768px) {
 
-  .header__theme-menu {
+.header__theme-menu {
   display: grid;
   grid-column-start: 4;
   grid-column-end: 5;
@@ -418,13 +407,30 @@
   margin-block-start: 173px;
 }
 
-.header-border-bottom {
+.decoration-border-top {
   grid-column-start: 1;
   grid-column-end: 5;
 }
 
+.decoration-border-bottom {
+  margin-block-start: 138px;
+}
+
+.page__description {
+  margin-block-start: 162px;
+}
+
+.hard-to-focus {
+  margin-block-start: 60px;
+}
+
 .card {
   display: grid;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.footer-text {
   grid-column-start: 1;
   grid-column-end: 4;
 }
@@ -461,6 +467,7 @@
     grid-column-start: 1;
     grid-column-end: 5;
     margin-block-start: 66px;
+    margin-inline-start: 0;
   }
 
   .page__description {
@@ -468,13 +475,17 @@
     grid-column-start: 1;
     grid-column-end: 5;
     margin-block-start: 55px;
-    text-wrap: wrap;
+  }
+
+  .hard-to-focus {
+    margin-block-start: 135px;
   }
 
   .why-title {
     grid-column-start: 1;
     grid-column-end: 4;
     margin-block-end: 20px;
+    max-width: 350px;
   }
 
   .why-description {
@@ -490,6 +501,14 @@
   .section-description {
     grid-column-start: 1;
     grid-column-end: 4;
+  }
+
+  .focus-decrease {
+    margin-block-start: 50px;
+  }
+
+  .focus__advises {
+    margin-block-start: 50px;
   }
 
   .advise-title {
@@ -525,6 +544,10 @@
 
   .footer-border-top {
     grid-row-start: 3;
+  }
+
+  .images-section {
+    margin-block-start: 50px;
   }
 
   .images {
