@@ -21,7 +21,7 @@
 
 .page.theme_light .rec {
   display: none;
-}
+ }
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -35,8 +35,8 @@
   --border-button-hover: rgba(50, 49, 45, 0.40);
   }
 
-  .page.theme_light .rec {
+ .rec {
   display: none;
-  }
+ }
 }
 

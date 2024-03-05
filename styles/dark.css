@@ -14,9 +14,12 @@
   --accent-color: #FF0070;
   --main-font-color: #F1B2CE;
   --bg-image: url(../images/cover-image-dark.png);
+  --bg-for-text: #FF0070;
 }
 
-
+.page.theme_dark .rec {
+  display: block;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -25,5 +28,10 @@
     --accent-color: #FF0070;
     --main-font-color: #F1B2CE;
     --bg-image: url(../images/cover-image-dark.png);
-  } 
+    --bg-for-text: #FF0070;
+  }
+
+  .rec {
+    display: block;
+  }
 }
